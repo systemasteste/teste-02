@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ClipFlow Mobile Editor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <button class="icon-btn" aria-label="Voltar">←</button>
+        <div class="project-meta">
+          <span class="eyebrow">Projeto</span>
+          <h1>Promo Reel</h1>
+        </div>
+        <button class="action-btn primary">Exportar</button>
+      </header>
+
+      <main class="editor">
+        <section class="preview-panel">
+          <div class="preview-topline">
+            <span class="status-pill">Editando</span>
+            <span class="camera-tag">4K • 30fps</span>
+          </div>
+
+          <div class="preview-window" id="previewWindow">
+            <div class="video-surface" id="videoSurface">
+              <div class="scene-glow"></div>
+              <div class="scene-details">
+                <span class="mini-badge">AÉREA</span>
+                <h2>Momentos que ganham vida</h2>
+              </div>
+              <div class="caption-bubble" id="captionBubble">A ação começa agora</div>
+            </div>
+          </div>
+
+          <div class="playback-bar">
+            <button class="control-surface" id="playPauseBtn" aria-label="Reproduzir ou pausar">▶</button>
+            <div class="time-range-wrap">
+              <label for="timeBar">Tempo</label>
+              <input id="timeBar" type="range" min="0" max="100" value="32" />
+            </div>
+            <div class="time-readout" id="timeReadout">00:12 / 00:35</div>
+          </div>
+        </section>
+
+        <aside class="tool-panel">
+          <div class="toolbar-grid">
+            <button class="tool-btn" data-action="cut">
+              <span class="tool-icon">✂</span>
+              <span>Recortar</span>
+            </button>
+            <button class="tool-btn" data-action="speed">
+              <span class="tool-icon">⏩</span>
+              <span>Velocidade</span>
+            </button>
+            <button class="tool-btn active" data-action="filter">
+              <span class="tool-icon">🎨</span>
+              <span>Filtro</span>
+            </button>
+            <button class="tool-btn" data-action="caption">
+              <span class="tool-icon">T</span>
+              <span>Legenda</span>
+            </button>
+            <button class="tool-btn" data-action="audio">
+              <span class="tool-icon">♫</span>
+              <span>Áudio</span>
+            </button>
+            <button class="tool-btn" data-action="sticker">
+              <span class="tool-icon">✨</span>
+              <span>Adesivos</span>
+            </button>
+          </div>
+
+          <div class="panel-section">
+            <div class="section-head">
+              <h3>Filtros</h3>
+            </div>
+            <div class="pill-list" id="filterList">
+              <button class="filter-btn active" data-filter="none">Normal</button>
+              <button class="filter-btn" data-filter="cinematic">Cinemático</button>
+              <button class="filter-btn" data-filter="warm">Quente</button>
+              <button class="filter-btn" data-filter="cool">Frio</button>
+              <button class="filter-btn" data-filter="vintage">Vintage</button>
+            </div>
+          </div>
+
+          <div class="panel-section">
+            <div class="section-head">
+              <h3>Ajustes</h3>
+            </div>
+            <div class="slider-block">
+              <label for="brightnessRange">Brilho <span id="brightnessValue">80%</span></label>
+              <input id="brightnessRange" type="range" min="60" max="150" value="80" />
+            </div>
+            <div class="slider-block">
+              <label for="contrastRange">Contraste <span id="contrastValue">110%</span></label>
+              <input id="contrastRange" type="range" min="70" max="180" value="110" />
+            </div>
+            <div class="slider-block">
+              <label for="saturationRange">Saturação <span id="saturationValue">100%</span></label>
+              <input id="saturationRange" type="range" min="50" max="170" value="100" />
+            </div>
+          </div>
+
+          <div class="panel-section">
+            <div class="section-head">
+              <h3>Texto</h3>
+            </div>
+            <input id="captionInput" type="text" value="A ação começa agora" maxlength="32" />
+            <button id="applyCaptionBtn" class="primary-btn">Aplicar legenda</button>
+          </div>
+
+          <div class="panel-section timeline-panel">
+            <div class="section-head">
+              <h3>Timeline</h3>
+              <span class="timeline-count">3 clips</span>
+            </div>
+            <div class="track-list" id="timeline"></div>
+          </div>
+        </aside>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
